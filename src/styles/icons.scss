@@ -1,0 +1,139 @@
+@import "variables";
+
+@font-face {
+	font-family: '#{$icomoon-font-family}';
+	src:
+		url('../fonts/iconfont/fonts/#{$icomoon-font-family}.ttf?sddkzd') format('truetype'),
+		url('../fonts/iconfont/fonts/#{$icomoon-font-family}.woff?sddkzd') format('woff'),
+		url('../fonts/iconfont/fonts/#{$icomoon-font-family}.svg?sddkzd##{$icomoon-font-family}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu {
+	&:before {
+	  content: $icon-menu; 
+	}
+}
+.icon-credit-card {
+  &:before {
+    content: $icon-credit-card; 
+  }
+}
+.icon-lifebuoy {
+  &:before {
+    content: $icon-lifebuoy; 
+  }
+}
+.icon-equalizer2 {
+  &:before {
+    content: $icon-equalizer2; 
+  }
+}
+.icon-menu {
+	&:before {
+	  content: $icon-menu; 
+	}
+}
+.icon-play2 {
+  &:before {
+    content: $icon-play2; 
+  }
+}
+.icon-pause {
+  &:before {
+    content: $icon-pause; 
+  }
+}
+.icon-stop {
+  &:before {
+    content: $icon-stop; 
+  }
+}
+.icon-previous {
+  &:before {
+    content: $icon-previous; 
+  }
+}
+.icon-next {
+  &:before {
+    content: $icon-next; 
+  }
+}
+.icon-backward {
+  &:before {
+    content: $icon-backward; 
+  }
+}
+.icon-forward2 {
+  &:before {
+    content: $icon-forward2; 
+  }
+}
+.icon-checkbox-checked {
+  &:before {
+    content: $icon-checkbox-checked; 
+  }
+}
+.icon-checkbox-unchecked {
+  &:before {
+    content: $icon-checkbox-unchecked; 
+  }
+}
+.icon-radio-checked {
+  &:before {
+    content: $icon-radio-checked; 
+  }
+}
+.icon-radio-unchecked {
+  &:before {
+    content: $icon-radio-unchecked; 
+  }
+}
+.icon-embed2 {
+  &:before {
+    content: $icon-embed2; 
+  }
+}
+.icon-mail2 {
+  &:before {
+    content: $icon-mail2; 
+  }
+}
+.icon-facebook2 {
+  &:before {
+    content: $icon-facebook2; 
+  }
+}
+.icon-instagram {
+  &:before {
+    content: $icon-instagram; 
+  }
+}
+.icon-telegram {
+  &:before {
+    content: $icon-telegram; 
+  }
+}
+.icon-youtube {
+  &:before {
+    content: $icon-youtube; 
+  }
+}
+

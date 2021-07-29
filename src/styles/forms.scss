@@ -1,0 +1,86 @@
+.f {
+	&__form {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	&__field {
+		position: relative;
+		padding-top: 26px;
+		min-width: 200px;
+		max-width: 300px;
+		margin: 0 auto;
+		width: 100%;
+		transition: all .1s linear;
+	}
+
+	&__label {
+		position: absolute;
+		top: 0;
+		padding-right: 7px;
+
+		&.m-checkbox {
+			left: 0;
+			padding: 0;
+		}
+	}
+
+	&__required {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	&__input,
+	&__select {
+		border: 1px solid $black;
+		height: 40px;
+		padding: 2px 5px;
+		width: 100%;
+		margin-bottom: 20px;
+		background-color: $white;
+	}
+
+	&__input {
+		&.m-textarea {
+			height: auto;
+			padding: 5px;
+		}
+	}
+
+	&__checkbox {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		height: 15px;
+		width: 15px;
+		float: left;
+	}
+
+	&__checkbox-data {
+		margin-left: 20px;
+		text-align: left;
+		margin-top: -4px;
+	}
+
+	&__error {
+		color: $error;
+		width: 100%;
+		text-align: left;
+		position: absolute;
+		bottom: 5px;
+	}
+}
+
+.m-error {
+	padding-bottom: 5px;
+
+	.f__input,
+	.f__select {
+		border: 1px solid $error;
+	}
+
+	.m-checkbox {
+		color: $error;
+	}
+}

@@ -1,0 +1,150 @@
+* {
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+}
+
+html {
+	@include font(var(--regular));
+	font-size: $base-font-size-px;
+}
+
+body {
+	margin: 0 auto;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
+a {
+	color: var(--black);
+	text-decoration: none;
+	display: inline-block;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+p {
+	margin: 0;
+}
+
+h1,
+h2,
+h3 {
+	@include font(var(--bold));
+	margin: $margin * 3 auto;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	display: block;
+	-webkit-user-drag: none; 
+	-khtml-user-drag: none; 
+	-moz-user-drag: none; 
+	-o-user-drag: none; 
+	user-drag: none; 
+}
+
+main {
+	margin: 0 auto;
+	text-align: center;
+}
+
+[class*="__container"] {
+	margin: $margin * 5 auto;
+	position: relative;
+	overflow: auto;
+}
+
+// classes
+
+.m-hidden {
+	display: none;
+}
+
+.m-desktop-show {
+	@include mediaBreak(desktop-min) {
+		display: inline-block;
+	}
+}
+
+.m-tablet-show {
+	@include mediaBreak(tablet) {
+		display: inline-block;
+	}
+}
+
+.m-mobile-show {
+	@include mediaBreak(mobile) {
+		display: inline-block;
+	}
+}
+
+// buttons
+
+.btn {
+	@include button();
+	margin-top: $margin * 4;
+}
+
+.btn__primary {
+	background-color: $black;
+	color: $white;
+
+	&:focus,
+	&:hover {
+		color: $black;
+		background-color: $white;
+
+		a {
+			color: $black;
+		}
+	}
+
+	a {
+		color: $white;
+		display: block;
+		text-decoration: none;
+	}
+}
+
+.m-btn-close {
+	background-image: url('../images/png/tools-close-icon.png');
+	background-repeat: no-repeat;
+	width: 24px;
+	height: 24px;
+	background-size: 24px;
+	cursor: pointer;
+	padding: 5px;
+	box-sizing: content-box;
+	background-position: 50%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 18px;
+	margin: 0;
+	border: 0;
+	min-width: initial;
+	background-color: transparent;
+}
+
+.clearfix::after {
+	content: '';
+	clear: both;
+	display: table;
+}
+
+.m-uppercase {
+	text-transform: uppercase;
+}
+
+.m-text-left {
+	text-align: left;
+}

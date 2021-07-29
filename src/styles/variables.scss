@@ -1,0 +1,127 @@
+$icomoon-font-family: "iconfont" !default;
+$icomoon-font-path: "fonts" !default;
+
+$icon-credit-card: "\e93f";
+$icon-lifebuoy: "\e941";
+$icon-equalizer2: "\e993";
+$icon-menu: "\e900";
+$icon-play2: "\ea15";
+$icon-pause: "\ea16";
+$icon-stop: "\ea17";
+$icon-previous: "\ea18";
+$icon-next: "\ea19";
+$icon-backward: "\ea1a";
+$icon-forward2: "\ea1b";
+$icon-checkbox-checked: "\ea52";
+$icon-checkbox-unchecked: "\ea53";
+$icon-radio-checked: "\ea54";
+$icon-radio-unchecked: "\ea56";
+$icon-embed2: "\ea80";
+$icon-mail2: "\ea84";
+$icon-facebook2: "\ea91";
+$icon-instagram: "\ea92";
+$icon-telegram: "\ea95";
+$icon-youtube: "\ea9d";
+
+:root {
+	// fonts
+	--bold: 'bold';
+	--semibold: 'semibold';
+	--regular: 'regular';
+	--light: 'light';
+
+	//colors
+	--white: #ffffff;
+	--black: #000000;
+
+	// z-index
+	--zMin: 1;
+	--zPopup: 99;
+	--zMax: 100;
+}
+
+$base-font-size: 14;
+$base-font-size-px: 14px;
+
+$headerHeight: 75px;
+$profileImg: 120px;
+
+$black: var(--black);
+$white: var(--white);
+$special: #ff005e;
+$error: #b10000;
+
+$zMin: 1;
+$zOver: $zMin + 1;
+
+
+$margin: 10px;
+$padding: 10px;
+
+
+// breakpoints
+// mobile
+$mobile-small : 320px;
+$mobile : 767px;
+
+// tablet
+$tablet : 768px;
+$breakpoint-tablet-portrait : 959px;
+$breakpoint-tablet-landscape : 960px;
+
+// desktop
+$desktop : 1024px;
+$desktop-hd : 1280px;
+$desktop-wide : 1450px;
+$desktop-huge : 1600px;
+
+@mixin mediaBreak ($breakpoint) {
+	// desktop
+	@if $breakpoint==desktop-min {
+		@media only screen and (min-width: $desktop) {
+			@content;
+		}
+	} @else if $breakpoint==desktop-max {
+		@media only screen and (max-width: $desktop) {
+			@content;
+		}
+	} @else if $breakpoint==desktop-wide {
+		@media only screen and (min-width: $desktop-wide) {
+			@content;
+		}
+	}
+
+	// tablet
+	@if $breakpoint==tablet-min {
+		@media only screen and (min-width: $tablet) {
+			@content;
+		}
+	} @else if $breakpoint==tablet-max {
+		@media only screen and (max-width: $tablet) {
+			@content;
+		}
+	} @else if $breakpoint==tablet {
+		@media only screen and (min-width: $mobile) and (max-width: $desktop) {
+			@content;
+		}
+	}
+
+	// mobile
+	@if $breakpoint==mobile-min {
+		@media only screen and (min-width: $mobile) {
+			@content;
+		}
+	} @else if $breakpoint==mobile-max {
+		@media only screen and (max-width: $mobile) {
+			@content;
+		}
+	} @else if $breakpoint==mobile-small-max {
+		@media only screen and (max-width: $mobile-small) {
+			@content;
+		}
+	} @else if $breakpoint==mobile {
+		@media only screen and (max-width: $mobile) {
+			@content;
+		}
+	}
+}

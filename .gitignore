@@ -29,3 +29,5 @@ surge.crt
 robots.txt
 
 /.key
+
+data.json

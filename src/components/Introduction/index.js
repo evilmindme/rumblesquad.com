@@ -27,7 +27,8 @@ export default function Introduction() {
 			<img 
 				src={bannerImage}
 				alt="banner"
-				className="introduction__image" 
+				className="introduction__image"
+				loading="lazy"
 			/>
 		</section>
 	</>

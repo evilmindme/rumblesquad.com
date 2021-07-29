@@ -52,6 +52,7 @@ export default function InstagramFeed() {
 									src={post.media_url}
 									alt={post.media_type}
 									className='social-instafeed__image'
+									loading="lazy"
 								/>
 								{/* <div className='social-instafeed__caption'>{post.caption}</div> */}
 							</>

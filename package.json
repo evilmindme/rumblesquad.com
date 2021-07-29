@@ -43,8 +43,15 @@
   },
   "devDependencies": {
     "firebase": "^8.6.1",
+    "git-scripts": "^0.4.3",
     "mapbox-gl": "^2.2.0",
     "node-sass": "^6.0.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "surge": "^0.23.0"
+  },
+  "git": {
+	"scripts": {
+	  "pre-push": "surge --project /Users/Alex/projects/rumblesquad/rumblesquad/build/ --domain rumblesquad.com"
+	}
   }
 }

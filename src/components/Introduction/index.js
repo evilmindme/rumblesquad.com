@@ -3,7 +3,7 @@ import { MEMBERSHIP } from '../../constants/routes';
 import bannerImage from '../../images/banner/rumble_banner.jpg';
 
 export default function Introduction() {
-	return (<>
+	return <>
 		<section className="introduction__container clearfix">
 			<div className="introduction__wrapper">
 				<div className="introduction__title-box m-diagonal-box">
@@ -30,5 +30,5 @@ export default function Introduction() {
 				className="introduction__image" 
 			/>
 		</section>
-	</>)
+	</>
 }

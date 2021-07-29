@@ -24,7 +24,7 @@ export default function Header() {
 		setNavActive(false);
 	}
 
-	return (
+	return <>
 		<header className="header">
 			<div className="header__wrapper">
 				<Nav 
@@ -46,5 +46,5 @@ export default function Header() {
 				<Social />
 			</div>
 		</header>
-	)
+	</>
 }

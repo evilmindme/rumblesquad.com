@@ -1,5 +1,4 @@
 export default function MembersInfo(props) {
-
 	return <>
 		<div className="members__info m-text-left">
 			<h4 className="members__info-name" >Name: {props.member[0] && props.member[0].name}</h4>

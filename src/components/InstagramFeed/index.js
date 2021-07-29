@@ -18,6 +18,7 @@ export default function InstagramFeed() {
 			setError(error);
 		})
 	}, [])
+
 	return <>
 		<section className='social-instafeed__container'>
 			<h1 className='m-uppercase m-text-left'>#rumblesquadmfc</h1>

@@ -392,7 +392,7 @@ body {
 
 		@include mediaBreak(mobile-max) {
 			position: absolute;
-			top: -150px;
+			height: 440px;
 			overflow-x: scroll;
 			width: 100%;
 			bottom: 0;

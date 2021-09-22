@@ -2,14 +2,13 @@ import {useContext, useState} from 'react';
 import  { FirebaseContext } from '../../firebase';
 import Loader from '../../components/Loader';
 import MembersList from './MembersList';
-import MembersInfo from './MembersInfo';
 
 // import { Carousel } from 'react-responsive-carousel';
 
 export default function Members() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [profileView, setProfileView] = useState({ "active": {id: false}, "stateActive": false}); 
-	const [currentMember, setCurrentMember] = useState({});
+	const [currentMember, setCurrentMember] = useState(false);
 	const membersInfo = useContext(FirebaseContext);
 	const membersRef = membersInfo.database.ref('members/profile/');
 
@@ -34,10 +33,14 @@ export default function Members() {
 
 	function handleMemberInfoClose(e, id) {
 		e.preventDefault();
+		e.stopPropagation();
+
+		setCurrentMember(false);
 		setProfileView({
 			"active": { [id]: false },
 			"stateActive": false
 		});
+		
 	}
 
 	function handleMemberInfoClick(e, id) {
@@ -46,9 +49,9 @@ export default function Members() {
 			"active": { [id]: true },
 			"stateActive": true
 		});
+
 		setCurrentMember(members.filter(member => member.id === id));
 	}
-
 	return <>
 		<section 
 			className="members__container" 
@@ -61,19 +64,17 @@ export default function Members() {
 					{members.map(member => {
 						return <MembersList 
 							member={member}
+							currentMember={currentMember}
 							key={member.id}
 							onHandleProfileClick={handleMemberInfoClick}
 							profileView={profileView}
+							profileActive={profileView.stateActive}
+							onHandleMemberInfoClose={handleMemberInfoClose}
+							
 						/>
 					})}
 				{/* </Carousel> */}
 			</div>}
-
-			<MembersInfo 
-				member={currentMember}
-				activeView={profileView.stateActive}
-				onHandleMemberInfoClose={handleMemberInfoClose}
-			/>
 		</section>
 	</>
 }

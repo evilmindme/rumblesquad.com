@@ -197,8 +197,45 @@ body {
 		position: relative;
 		margin: 0;
 
+		@include mediaBreak(desktop-min) {
+			&[data-cover] {
+				&::before {
+					content: ' ';
+					display: block;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					left: 0;
+					top: 0;
+					display: block;
+					background-color: rgba(0, 0, 0, .3);
+					z-index: var(--zMin);
+					-webkit-animation: fadein .2s ease-in-out forwards;
+					animation: fadein .2s ease-in-out forwards;
+				}
+
+				&.fadeOut {
+					&::before {
+						-webkit-animation: fadeout .05s ease-out forwards;
+						animation: fadeout .05s ease-out forwards;
+					}
+				}
+			}
+
+			&[data-cover="false"] {
+				&::before {
+					display: none;
+				}
+				
+			}
+		}
+
 		@include mediaBreak(tablet-min) {
 			height: 600px;
+		}
+
+		@include mediaBreak(mobile-max) {
+			overflow: hidden;
 		}
 
 		.mapboxgl-ctrl-attrib-button {
@@ -207,37 +244,6 @@ body {
 
 		.mapboxgl-ctrl-attrib {
 			display: none;
-		}
-
-		&[data-cover] {
-			&::before {
-				content: ' ';
-				display: block;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				left: 0;
-				top: 0;
-				display: block;
-				background-color: rgba(0, 0, 0, .3);
-				z-index: var(--zMin);
-				-webkit-animation: fadein .2s ease-in-out forwards;
-				animation: fadein .2s ease-in-out forwards;
-			}
-
-			&.fadeOut {
-				&::before {
-					-webkit-animation: fadeout .05s ease-out forwards;
-					animation: fadeout .05s ease-out forwards;
-				}
-			}
-		}
-
-		&[data-cover="false"] {
-			&::before {
-				display: none;
-			}
-			
 		}
 	}
 }
@@ -357,14 +363,19 @@ body {
 	&__container {
 		padding-bottom: $padding * 3;
 		background: $black;
-		overflow: hidden;
+		overflow: visible;
 		margin: 0;
+
+		@include mediaBreak(mobile-max) {
+			height: 291px;
+		}
 	}
 
 	&__title {
 		color: $white;
-		transform: translateX(0);
 		transition: all .3s linear;
+		padding-top: 30px;
+		margin-top: 0;
 	}
 
 	&__list {
@@ -373,11 +384,19 @@ body {
 		margin: 0 auto;
 		transition: all .3s linear;
 		transform: translateX(0);
-		overflow: auto;
 
 		@include mediaBreak(tablet-min) {
 			width: 80%;
 			justify-content: center;
+		}
+
+		@include mediaBreak(mobile-max) {
+			position: absolute;
+			top: -150px;
+			overflow-x: scroll;
+			width: 100%;
+			bottom: 0;
+			align-items: end;
 		}
 	}
 
@@ -395,6 +414,10 @@ body {
 
 		@include mediaBreak(desktop-min) {
 			height: 150px;
+		}
+
+		@include mediaBreak(mobile-max) {
+			margin-bottom: 70px;
 		}
 
 		&:hover {
@@ -457,9 +480,22 @@ body {
 				transform: scale(.95);
 				border: 1px solid $white;
 			}
+		}
 
+		&:last-child {
 			.members__info {
-				display: block;
+				@include mediaBreak(mobile-max) {
+					left: -120px;
+					box-shadow: -3px -3px 5px -2px rgba(255, 255, 255, .5);
+				}
+
+				&::after {
+					@include mediaBreak(mobile-max) {
+						transform: rotate(-28deg);
+						right: 50px;
+						left: initial;
+					}
+				}
 			}
 		}
 	}
@@ -472,37 +508,62 @@ body {
 	}
 
 	&__info {
-		transform: translateX(100%);
-		transition: all .3s linear;
-		background-color: $white;
+		background-color: rgba(0, 0, 0, 0.8);
 		position: absolute;
 		right: 0;
-		width: 17%;
 		min-width: 200px;
-		height: 100%;
-		top: 0;
+		width: 230px;
 		padding: 10px;
+		color: $white;
+		height: 230px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		border: 1px solid $white;
+		border-radius: 50%;
+		left: 40%;
+		top: -230px;
+		cursor: default;
+		box-shadow: 3px -3px 5px -2px rgba(255, 255, 255, .5);
+
+		@include mediaBreak(mobile-max) {
+			left: 40px;
+		}
+
+		&::after {
+			content: ' ';
+			width: 0;
+			height: 0;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 10px solid $white;
+			position: absolute;
+			bottom: 2px;
+			left: 50px;
+			transform: rotate(28deg);
+		}
+	}
+
+	&__close {
+		background-image: url('../images/png/tools-close-icon-white.png');
+		left: 50%;
+		top: 5px;
+		right: initial;
+		transform: translateX(-50%);
+
+		&:hover {
+			background-size: 25px;
+		}
 	}
 
 	&__info-name {
-		margin: 10px 0;
+		margin-top: -15px;
+		margin-bottom: 10px;
 	}
 }
 
 .members__container {
-	&[data-profileview="true"] {
-		.members__title {
-			transform: translateX(-13%);
-		}
-
-		.members__list {
-			transform: translateX(-17%);
-		}
-
-		.members__info {
-			transform: translateX(0);
-		}
-	}
 	.members__profile.active {
 		&::before {
 			border: 1px solid $white;
@@ -566,6 +627,11 @@ body {
 
 	&__video {
 		width: 100%;
+	}
+
+	&__video,
+	&__image {
+		border-radius: 10px;
 	}
 
 	&__caption {

@@ -1,3 +1,5 @@
+import MembersInfo from './MembersInfo';
+
 export default function MembersList(props) {
 	const {id, name} = props.member;
 
@@ -10,6 +12,11 @@ export default function MembersList(props) {
 			data-profileview={props.profileView.active[id]}
 		>
 			<h4 className="members__name" >{name}</h4>
+			{props.currentMember && props.profileView.active[id] && props.profileActive && <MembersInfo 
+				member={props.currentMember}
+				activeView={props.profileActive}
+				onHandleMemberInfoClose={props.onHandleMemberInfoClose}
+			/>}
 		</div>
 	</>
 }

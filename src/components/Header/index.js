@@ -24,12 +24,25 @@ export default function Header() {
 		setNavActive(false);
 	}
 
+	function handleOutsideClick(e) {
+		e.preventDefault();
+
+		const clickedOutside = e.target;
+		if (clickedOutside.children[0]) {
+			if (clickedOutside.children[0].classList.contains('open') && navActive) {
+				handleNavCloseClick(e);
+			}
+		}
+		
+	}
+
 	return <>
 		<header className="header">
-			<div className="header__wrapper">
+			<div className="header__wrapper" onClick={handleOutsideClick}>
 				<Nav 
 					navActive={navActive}
-					handleNavCloseClick={handleNavCloseClick} 
+					handleNavCloseClick={handleNavCloseClick}
+					
 				/>
 				<MobileOnlyView>
 					<div 

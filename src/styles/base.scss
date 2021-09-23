@@ -31,13 +31,16 @@ body {
 	top: 0;
 	height: $headerHeight;
 	width: 100%;
-	overflow: hidden;
 	background-color: $white;
 	box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
 	z-index: var(--zPopup);
 
 	@include mediaBreak(desktop-min) {
 		height: $headerHeight + 25;
+	}
+
+	@include mediaBreak(tablet-min) {
+		overflow: hidden;
 	}
 
 	&__wrapper {
@@ -396,7 +399,7 @@ body {
 			overflow-x: scroll;
 			width: 100%;
 			bottom: 0;
-			align-items: end;
+			align-items: flex-end;
 		}
 	}
 
@@ -654,6 +657,14 @@ body {
 
 		max-width: 600px;
 		margin: 0 auto;
+
+		p {
+			padding: 0 15px;
+	
+			@include mediaBreak(desktop-min) {
+				padding: 0;
+			}
+		}
 	}
 
 	&__form {

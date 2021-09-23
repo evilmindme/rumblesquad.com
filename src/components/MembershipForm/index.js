@@ -14,13 +14,14 @@ export default function MembershipForm() {
 	const [countries, setCountries] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 	const [formSubmitted, setFormSubmitted] = useState(false);
-	const {get} = useFetch('https://restcountries.eu/rest/v2');
+	// https://restcountries.com/ URL to check API version
+	const {get} = useFetch('https://restcountries.com/v3/');
 
 	useEffect(() => {
-		get('/all?fields=name;capital')
+		get('all?fields=name,capital')
 			.then(data => {
 				const dataToArray = Object.keys(data).map((key) => data[key].name);
-				setCountries(dataToArray);
+				setCountries(dataToArray.sort((a, b) => a.common.localeCompare(b.common)));
 				setIsLoading(false);
 			})
 			.catch(error => {
@@ -129,7 +130,7 @@ export default function MembershipForm() {
 							<option value="">Select country...</option>
 							{
 								countries.map((country, i) => {
-									return <option value={country} key={country}>{country}</option>
+									return <option value={country.common} key={country.common}>{country.common}</option>
 								})
 							}
 						</FormSelect>
